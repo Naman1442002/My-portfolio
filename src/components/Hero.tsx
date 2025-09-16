@@ -94,11 +94,32 @@ const Hero = () => {
         </div>
 
         <div className="max-w-2xl mx-auto animate-fade-in-up delay-700 mb-8">
-          <img
-            src="https://images.pexels.com/photos/1181472/pexels-photo-1181472.jpeg?auto=compress&cs=tinysrgb&w=800"
-            alt="Full Stack Development"
-            className="w-full h-64 object-cover rounded-2xl shadow-2xl mb-6 border border-slate-600/30 hover:scale-105 transition-transform duration-500 hover:shadow-blue-500/25"
-          />
+          <div className="w-full h-64 bg-gradient-to-br from-slate-800 via-blue-900 to-purple-900 rounded-2xl shadow-2xl mb-6 border border-slate-600/30 hover:scale-105 transition-transform duration-500 hover:shadow-blue-500/25 flex items-center justify-center relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 animate-pulse"></div>
+            <div className="relative text-center space-y-4">
+              <div className="flex justify-center space-x-6">
+                <div className="w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl flex items-center justify-center shadow-lg animate-float">
+                  <span className="text-white font-bold text-lg">R</span>
+                </div>
+                <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl flex items-center justify-center shadow-lg animate-float delay-200">
+                  <span className="text-white font-bold text-lg">J</span>
+                </div>
+                <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center shadow-lg animate-float delay-300">
+                  <span className="text-white font-bold text-sm">SB</span>
+                </div>
+              </div>
+              <div className="text-slate-300 font-mono text-sm animate-pulse">
+                Full Stack Development
+              </div>
+              <div className="flex justify-center space-x-2 text-slate-400 text-xs">
+                <span className="animate-pulse">Frontend</span>
+                <span>•</span>
+                <span className="animate-pulse delay-200">Backend</span>
+                <span>•</span>
+                <span className="animate-pulse delay-300">Database</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

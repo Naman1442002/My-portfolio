@@ -42,11 +42,33 @@ const About = () => {
           </div>
 
           <div className="animate-fade-in-left delay-300">
-            <img
-              src="https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=800"
-              alt="Software Development"
-              className="w-full h-96 object-cover rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-500 border border-slate-200"
-            />
+            <div className="w-full h-96 bg-gradient-to-br from-blue-50 via-slate-50 to-purple-50 rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-500 border border-slate-200 flex items-center justify-center">
+              <div className="text-center space-y-6">
+                <div className="flex justify-center space-x-4">
+                  <div className="w-20 h-20 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl flex items-center justify-center shadow-lg animate-bounce-slow">
+                    <span className="text-white font-bold text-2xl">J</span>
+                  </div>
+                  <div className="w-20 h-20 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center shadow-lg animate-bounce-slow delay-200">
+                    <span className="text-white font-bold text-xl">SB</span>
+                  </div>
+                </div>
+                <div className="flex justify-center space-x-4">
+                  <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg animate-float">
+                    <Database className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center shadow-lg animate-float delay-300">
+                    <Server className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="w-16 h-16 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-xl flex items-center justify-center shadow-lg animate-float delay-500">
+                    <Cloud className="w-8 h-8 text-white" />
+                  </div>
+                </div>
+                <div className="text-slate-600 font-mono text-sm">
+                  <div className="animate-pulse">Backend Development</div>
+                  <div className="animate-pulse delay-200">Microservices Architecture</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

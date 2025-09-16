@@ -14,11 +14,25 @@ const Contact = () => {
 
         <div className="grid md:grid-cols-2 gap-12 items-center animate-fade-in-up delay-200">
           <div className="animate-fade-in-left delay-300">
-            <img
-              src="https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=800"
-              alt="Contact"
-              className="w-full h-64 object-cover rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-500 border border-slate-200"
-            />
+            <div className="w-full h-64 bg-gradient-to-br from-blue-50 via-slate-50 to-purple-50 rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-500 border border-slate-200 flex items-center justify-center">
+              <div className="text-center space-y-4">
+                <div className="w-20 h-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto animate-pulse">
+                  <Mail className="w-10 h-10 text-white" />
+                </div>
+                <div className="space-y-2">
+                  <div className="text-slate-700 font-semibold">Let's Connect</div>
+                  <div className="text-slate-500 text-sm">Ready for new opportunities</div>
+                </div>
+                <div className="flex justify-center space-x-3">
+                  <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                    <Mail className="w-4 h-4 text-blue-600" />
+                  </div>
+                  <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                    <Linkedin className="w-4 h-4 text-blue-600" />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="space-y-8 animate-fade-in-right delay-500">

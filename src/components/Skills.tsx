@@ -24,11 +24,32 @@ const Skills = () => {
 
         <div className="grid md:grid-cols-2 gap-8 animate-fade-in-up delay-200">
           <div className="animate-fade-in-right">
-            <img
-              src="https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=800"
-              alt="Programming"
-              className="w-full h-64 object-cover rounded-2xl shadow-2xl mb-8 hover:scale-105 transition-transform duration-500 border border-slate-200"
-            />
+            <div className="w-full h-64 bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 rounded-2xl shadow-2xl mb-8 hover:scale-105 transition-transform duration-500 border border-slate-200 flex items-center justify-center">
+              <div className="text-center space-y-4">
+                <div className="grid grid-cols-3 gap-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg flex items-center justify-center animate-pulse">
+                    <span className="text-white font-bold text-sm">Java</span>
+                  </div>
+                  <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center animate-pulse delay-200">
+                    <span className="text-white font-bold text-xs">Boot</span>
+                  </div>
+                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center animate-pulse delay-300">
+                    <span className="text-white font-bold text-xs">SQL</span>
+                  </div>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center animate-pulse delay-500">
+                    <span className="text-white font-bold text-xs">API</span>
+                  </div>
+                  <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-lg flex items-center justify-center animate-pulse delay-700">
+                    <span className="text-white font-bold text-xs">μS</span>
+                  </div>
+                </div>
+                <div className="text-slate-600 font-mono text-sm animate-fade-in-up delay-1000">
+                  Full Stack Development
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="space-y-6 animate-stagger">
