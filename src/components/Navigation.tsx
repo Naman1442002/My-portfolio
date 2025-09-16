@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Cpu, Zap } from 'lucide-react';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -46,16 +46,31 @@ const Navigation = () => {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       scrolled 
-        ? 'bg-white/95 backdrop-blur-sm shadow-lg' 
+        ? 'bg-slate-900/95 backdrop-blur-sm shadow-lg border-b border-slate-700/50' 
         : 'bg-transparent'
     }`}>
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          <div className={`font-bold text-xl transition-colors duration-300 ${
-            scrolled ? 'text-slate-800' : 'text-white'
-          }`}>
-            <div className="flex items-center space-x-2">
-              <span className="font-mono">{'<NP/>'}</span>
+          <div className="transition-all duration-300 hover:scale-105">
+            <div className="flex items-center space-x-2 group">
+              <div className="relative">
+                <Cpu className={`w-6 h-6 transition-colors duration-300 ${
+                  scrolled ? 'text-blue-400' : 'text-blue-300'
+                } group-hover:animate-pulse`} />
+                <div className="absolute -top-1 -right-1 w-2 h-2 bg-green-400 rounded-full animate-ping"></div>
+              </div>
+              <div className={`font-bold transition-colors duration-300 ${
+                scrolled ? 'text-white' : 'text-white'
+              }`}>
+                <span className="text-lg bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                  Naman
+                </span>
+                <span className="text-lg text-slate-300 mx-1">•</span>
+                <span className="text-sm font-mono text-slate-400">DEV</span>
+              </div>
+              <Zap className={`w-4 h-4 transition-colors duration-300 ${
+                scrolled ? 'text-yellow-400' : 'text-yellow-300'
+              } group-hover:animate-bounce`} />
             </div>
           </div>
 
@@ -68,11 +83,11 @@ const Navigation = () => {
                 className={`px-3 py-2 rounded-lg transition-all duration-300 hover:scale-105 ${
                   activeSection === item.id
                     ? scrolled 
-                      ? 'text-blue-600 bg-blue-50' 
-                      : 'text-blue-300 bg-white/20'
+                      ? 'text-blue-400 bg-blue-500/20 border border-blue-500/30' 
+                      : 'text-blue-300 bg-blue-500/20 border border-blue-500/30'
                     : scrolled
-                      ? 'text-slate-600 hover:text-blue-600 hover:bg-blue-50'
-                      : 'text-white/80 hover:text-white hover:bg-white/20'
+                      ? 'text-slate-300 hover:text-blue-400 hover:bg-slate-700/50'
+                      : 'text-white/80 hover:text-white hover:bg-white/10'
                 }`}
               >
                 {item.label}
@@ -86,8 +101,8 @@ const Navigation = () => {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className={`p-2 rounded-lg transition-all duration-300 hover:scale-105 ${
                 scrolled
-                  ? 'text-slate-600 hover:text-blue-600 hover:bg-blue-50'
-                  : 'text-white hover:text-blue-300 hover:bg-white/20'
+                  ? 'text-slate-300 hover:text-blue-400 hover:bg-slate-700/50'
+                  : 'text-white hover:text-blue-300 hover:bg-white/10'
               }`}
             >
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -97,7 +112,7 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 bg-white border-t border-slate-200">
+          <div className="md:hidden py-4 bg-slate-900/95 backdrop-blur-sm border-t border-slate-700/50">
             <div className="flex flex-col space-y-2">
               {navItems.map((item) => (
                 <button
@@ -105,8 +120,8 @@ const Navigation = () => {
                   onClick={() => scrollToSection(item.id)}
                   className={`px-3 py-2 text-left rounded-lg transition-all duration-300 ${
                     activeSection === item.id
-                      ? 'text-blue-600 bg-blue-50'
-                      : 'text-slate-600 hover:text-blue-600 hover:bg-blue-50'
+                      ? 'text-blue-400 bg-blue-500/20 border border-blue-500/30'
+                      : 'text-slate-300 hover:text-blue-400 hover:bg-slate-700/50'
                   }`}
                 >
                   {item.label}

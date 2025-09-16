@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Linkedin, Mail, MapPin, Code2, Terminal } from 'lucide-react';
+import { Github, Linkedin, Mail, MapPin, Code2, Zap, Cpu } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -21,33 +21,42 @@ const Hero = () => {
 
       <div className="max-w-4xl mx-auto text-center">
         <div className="mb-8">
-          {/* Animated Logo */}
-          <div className="flex items-center justify-center mb-6">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl blur-lg opacity-75 animate-pulse"></div>
-              <div className="relative bg-gradient-to-r from-blue-600 to-purple-700 text-white px-6 py-3 rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-300">
-                <div className="flex items-center space-x-2">
-                  <Terminal className="w-6 h-6 animate-pulse" />
-                  <span className="text-2xl font-bold font-mono">{'<Naman'}</span>
-                  <Code2 className="w-6 h-6 animate-spin-slow" />
-                  <span className="text-2xl font-bold font-mono">{'Pal />'}</span>
+          {/* Professional Logo */}
+          <div className="flex items-center justify-center mb-8">
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 rounded-3xl blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
+              <div className="relative bg-slate-900 px-8 py-4 rounded-3xl leading-none flex items-center">
+                <div className="flex items-center space-x-3">
+                  <div className="relative">
+                    <Cpu className="w-8 h-8 text-blue-400 animate-pulse" />
+                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full animate-ping"></div>
+                  </div>
+                  <div className="text-left">
+                    <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                      Naman Pal
+                    </div>
+                    <div className="text-xs text-slate-400 font-mono tracking-wider">
+                      FULL_STACK_DEV
+                    </div>
+                  </div>
+                  <Zap className="w-6 h-6 text-yellow-400 animate-bounce" />
                 </div>
               </div>
             </div>
           </div>
           
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 animate-fade-in-up">
-            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
               Full Stack Developer
             </span>
           </h1>
-          <h2 className="text-xl md:text-2xl font-semibold text-blue-300 mb-6 animate-fade-in-up delay-200">
+          <h2 className="text-xl md:text-2xl font-semibold mb-6 animate-fade-in-up delay-200">
             <span className="inline-flex items-center space-x-2">
-              <span className="text-orange-400 font-mono">React</span>
-              <span className="text-blue-300">+</span>
-              <span className="text-red-400 font-mono">Java</span>
-              <span className="text-blue-300">+</span>
-              <span className="text-green-400 font-mono">Spring Boot</span>
+              <span className="bg-gradient-to-r from-cyan-400 to-blue-400 px-3 py-1 rounded-full text-sm font-mono font-bold text-slate-900">React</span>
+              <span className="text-slate-300 text-2xl">×</span>
+              <span className="bg-gradient-to-r from-orange-400 to-red-400 px-3 py-1 rounded-full text-sm font-mono font-bold text-slate-900">Java</span>
+              <span className="text-slate-300 text-2xl">×</span>
+              <span className="bg-gradient-to-r from-green-400 to-emerald-400 px-3 py-1 rounded-full text-sm font-mono font-bold text-slate-900">Spring Boot</span>
             </span>
           </h2>
           <div className="flex items-center justify-center text-slate-300 mb-8 animate-fade-in-up delay-300">
@@ -61,25 +70,25 @@ const Hero = () => {
             href="https://github.com/Naman1442002"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-6 py-3 rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 border border-white/20"
+            className="flex items-center bg-slate-800/50 backdrop-blur-sm hover:bg-slate-700/50 text-white px-6 py-3 rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 border border-slate-600/30 group"
           >
-            <Github className="w-5 h-5 mr-2" />
+            <Github className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform duration-300" />
             GitHub
           </a>
           <a
             href="https://www.linkedin.com/in/naman-pal-67b914245"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-6 py-3 rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105"
+            className="flex items-center bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-6 py-3 rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 group"
           >
-            <Linkedin className="w-5 h-5 mr-2" />
+            <Linkedin className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform duration-300" />
             LinkedIn
           </a>
           <a
             href="mailto:naman1442002@gmail.com"
-            className="flex items-center bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-6 py-3 rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 border border-white/20"
+            className="flex items-center bg-slate-800/50 backdrop-blur-sm hover:bg-slate-700/50 text-white px-6 py-3 rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 border border-slate-600/30 group"
           >
-            <Mail className="w-5 h-5 mr-2" />
+            <Mail className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform duration-300" />
             Email
           </a>
         </div>
@@ -88,7 +97,7 @@ const Hero = () => {
           <img
             src="https://images.pexels.com/photos/1181472/pexels-photo-1181472.jpeg?auto=compress&cs=tinysrgb&w=800"
             alt="Full Stack Development"
-            className="w-full h-64 object-cover rounded-2xl shadow-2xl mb-6 border border-white/20 hover:scale-105 transition-transform duration-500"
+            className="w-full h-64 object-cover rounded-2xl shadow-2xl mb-6 border border-slate-600/30 hover:scale-105 transition-transform duration-500 hover:shadow-blue-500/25"
           />
         </div>
       </div>
