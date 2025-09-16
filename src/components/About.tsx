@@ -5,12 +5,19 @@ const About = () => {
   return (
     <section id="about" className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
       <div className="max-w-6xl mx-auto px-4">
-        <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
-            About Me
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full animate-pulse"></div>
-        </div>
+         <div className="text-center mb-12 animate-fade-in-up flex justify-center items-center space-x-2">
+              {/* Optional animated hand at start */}
+            <span className="text-3xl animate-wave">👋</span>
+
+                <h2 className="text-3xl md:text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600 mb-2">
+                  About Me
+                </h2>
+               {/* Optional animated hand at end */}
+           <span className="text-3xl animate-wave">👋</span>
+      </div>
+
+   <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full animate-pulse"></div>
+
 
         <div className="grid md:grid-cols-2 gap-12 items-center animate-fade-in-up delay-200">
           <div className="space-y-6">

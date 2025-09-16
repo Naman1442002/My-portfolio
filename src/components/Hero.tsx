@@ -1,125 +1,145 @@
-import React from 'react';
-import { Github, Linkedin, Mail, MapPin, Code2, Zap, Cpu } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import { Github, Linkedin, Mail, MapPin } from "lucide-react";
 
+// Tech Bubble Hero Component
+const TechBubbleHero = () => {
+  const numBubbles = 60;
+  const width = 400;
+  const height = 400;
+
+  const colors = [
+    "bg-gradient-to-tr from-blue-400 to-blue-600",
+    "bg-gradient-to-tr from-purple-400 to-purple-600",
+    "bg-gradient-to-tr from-pink-400 to-pink-600",
+    "bg-gradient-to-tr from-teal-400 to-teal-600",
+    "bg-gradient-to-tr from-yellow-400 to-yellow-500",
+    "bg-gradient-to-tr from-indigo-400 to-indigo-600",
+  ];
+
+  // Generate bubbles with minimum spacing
+  const bubbles = [];
+  for (let i = 0; i < numBubbles; i++) {
+    let size = 15 + Math.random() * 50;
+    let x, y;
+    let tries = 0;
+
+    // Ensure bubbles don’t overlap exactly
+    do {
+      x = Math.random() * (width - size);
+      y = Math.random() * (height - size);
+      tries++;
+    } while (
+      bubbles.some(
+        (b) => Math.hypot(b.x - x, b.y - y) < (b.size + size) * 0.8
+      ) && tries < 50
+    );
+
+    bubbles.push({
+      x,
+      y,
+      size,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      duration: 3 + Math.random() * 3,
+      delay: Math.random() * 2,
+      zIndex: Math.floor(Math.random() * 10), // optional for depth
+    });
+  }
+
+  return (
+    <div className="relative w-[400px] h-[400px]">
+      {bubbles.map((bubble, index) => (
+        <motion.div
+          key={index}
+          className={`absolute ${bubble.color} rounded-full opacity-70 shadow-xl`}
+          style={{
+            width: bubble.size,
+            height: bubble.size,
+            top: bubble.y,
+            left: bubble.x,
+            zIndex: bubble.zIndex,
+          }}
+          animate={{
+            scale: [0, 1, 0], // pop-in and pop-out
+            opacity: [0, 1, 0], // blinking effect
+          }}
+          transition={{
+            repeat: Infinity,
+            duration: bubble.duration,
+            ease: "easeInOut",
+            delay: bubble.delay,
+          }}
+        />
+      ))}
+    </div>
+  );
+};
+
+// Full Hero Section
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 flex items-center justify-center px-4 relative overflow-hidden pt-20">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl animate-ping"></div>
-      </div>
-      
-      {/* Floating code elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-10 text-blue-400/20 text-6xl font-mono animate-float">{'<>'}</div>
-        <div className="absolute top-40 right-20 text-purple-400/20 text-4xl font-mono animate-float-delayed">{'{}'}</div>
-        <div className="absolute bottom-32 left-20 text-cyan-400/20 text-5xl font-mono animate-bounce-slow">[]</div>
-        <div className="absolute bottom-20 right-10 text-green-400/20 text-3xl font-mono animate-pulse">()</div>
-      </div>
-
-      <div className="max-w-4xl mx-auto text-center mt-8">
-        <div className="mb-8">
-          {/* Professional Logo */}
-          <div className="flex items-center justify-center mb-8">
-            <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 rounded-3xl blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
-              <div className="relative bg-slate-900 px-8 py-4 rounded-3xl leading-none flex items-center">
-                <div className="flex items-center space-x-3">
-                  <div className="relative">
-                    <Cpu className="w-8 h-8 text-blue-400 animate-pulse" />
-                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full animate-ping"></div>
-                  </div>
-                  <div className="text-left">
-                    <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
-                      Naman Pal
-                    </div>
-                    <div className="text-xs text-slate-400 font-mono tracking-wider">
-                      FULL_STACK_DEV
-                    </div>
-                  </div>
-                  <Zap className="w-6 h-6 text-yellow-400 animate-bounce" />
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 animate-fade-in-up">
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
-              Full Stack Developer
-            </span>
+    <section
+      id="home"
+      className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 flex items-center justify-center px-4 relative overflow-hidden"
+    >
+      <div className="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center gap-12 relative z-10">
+        {/* Left Content */}
+        <div className="flex-1 text-center md:text-left space-y-6">
+          <h1 className="text-5xl md:text-6xl font-extrabold text-white">
+            Naman Pal
           </h1>
-          <h2 className="text-xl md:text-2xl font-semibold mb-8 animate-fade-in-up delay-200">
-            <span className="inline-flex items-center space-x-2">
-              <span className="bg-gradient-to-r from-cyan-400 to-blue-400 px-3 py-1 rounded-full text-sm font-mono font-bold text-slate-900">React</span>
-              <span className="text-slate-300 text-2xl">×</span>
-              <span className="bg-gradient-to-r from-orange-400 to-red-400 px-3 py-1 rounded-full text-sm font-mono font-bold text-slate-900">Java</span>
-              <span className="text-slate-300 text-2xl">×</span>
-              <span className="bg-gradient-to-r from-green-400 to-emerald-400 px-3 py-1 rounded-full text-sm font-mono font-bold text-slate-900">Spring Boot</span>
-            </span>
+          <h2 className="text-xl md:text-2xl text-gray-300 font-medium">
+            Full Stack Developer | React | Java | Spring Boot
           </h2>
-          <div className="flex items-center justify-center text-slate-300 mb-10 animate-fade-in-up delay-300">
-            <MapPin className="w-5 h-5 mr-2" />
-            <span className="text-lg">Noida, India</span>
+
+          <div className="flex items-center justify-center md:justify-start text-gray-400 gap-2 mt-2">
+            <MapPin className="w-5 h-5" />
+            <span>Faridabad, India</span>
           </div>
-        </div>
-        
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-fade-in-up delay-500">
-          <a
-            href="https://github.com/Naman1442002"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center bg-slate-800/50 backdrop-blur-sm hover:bg-slate-700/50 text-white px-6 py-3 rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 border border-slate-600/30 group"
-          >
-            <Github className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform duration-300" />
-            GitHub
-          </a>
-          <a
-            href="https://www.linkedin.com/in/naman-pal-67b914245"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-6 py-3 rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 group"
-          >
-            <Linkedin className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform duration-300" />
-            LinkedIn
-          </a>
-          <a
-            href="mailto:naman1442002@gmail.com"
-            className="flex items-center bg-slate-800/50 backdrop-blur-sm hover:bg-slate-700/50 text-white px-6 py-3 rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 border border-slate-600/30 group"
-          >
-            <Mail className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform duration-300" />
-            Email
-          </a>
+
+          {/* Social Icons */}
+          <div className="flex gap-4 justify-center md:justify-start mt-6">
+            <a
+              href="https://github.com/Naman1442002"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-blue-400 transition-colors"
+            >
+              <Github className="w-6 h-6" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/naman-pal-67b914245"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-blue-400 transition-colors"
+            >
+              <Linkedin className="w-6 h-6" />
+            </a>
+            <a
+              href="mailto:naman1442002@gmail.com"
+              className="text-white hover:text-blue-400 transition-colors"
+            >
+              <Mail className="w-6 h-6" />
+            </a>
+          </div>
+
+          {/* Resume Download Button */}
+          <div className="mt-6 flex flex-col md:flex-row gap-4 justify-center md:justify-start">
+            <a
+              href="/Resume.pdf"
+              download
+              className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300 relative overflow-hidden"
+            >
+              Download Resume
+              <span className="absolute w-3 h-3 bg-white rounded-full top-1 left-1 animate-bounce opacity-70"></span>
+              <span className="absolute w-2 h-2 bg-white rounded-full bottom-2 right-3 animate-ping opacity-50"></span>
+            </a>
+          </div>
         </div>
 
-        <div className="max-w-2xl mx-auto animate-fade-in-up delay-700 mb-8">
-          <div className="w-full h-64 bg-gradient-to-br from-slate-800 via-blue-900 to-purple-900 rounded-2xl shadow-2xl mb-6 border border-slate-600/30 hover:scale-105 transition-transform duration-500 hover:shadow-blue-500/25 flex items-center justify-center relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 animate-pulse"></div>
-            <div className="relative text-center space-y-4">
-              <div className="flex justify-center space-x-6">
-                <div className="w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl flex items-center justify-center shadow-lg animate-float">
-                  <span className="text-white font-bold text-lg">R</span>
-                </div>
-                <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl flex items-center justify-center shadow-lg animate-float delay-200">
-                  <span className="text-white font-bold text-lg">J</span>
-                </div>
-                <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center shadow-lg animate-float delay-300">
-                  <span className="text-white font-bold text-sm">SB</span>
-                </div>
-              </div>
-              <div className="text-slate-300 font-mono text-sm animate-pulse">
-                Full Stack Development
-              </div>
-              <div className="flex justify-center space-x-2 text-slate-400 text-xs">
-                <span className="animate-pulse">Frontend</span>
-                <span>•</span>
-                <span className="animate-pulse delay-200">Backend</span>
-                <span>•</span>
-                <span className="animate-pulse delay-300">Database</span>
-              </div>
-            </div>
-          </div>
+        {/* Right Content: Tech Bubble Hero */}
+        <div className="flex-1 flex justify-center md:justify-end relative">
+          <TechBubbleHero />
         </div>
       </div>
     </section>

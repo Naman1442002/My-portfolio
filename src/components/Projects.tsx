@@ -1,85 +1,73 @@
-import React from 'react';
-import { ExternalLink, Github, Code2 } from 'lucide-react';
+import React from "react";
+import { Code2 } from "lucide-react";
 
 const Projects = () => {
   const projects = [
     {
-      title: 'CoreAI Engine',
-      description: 'Modular backend for bot creation, tool integration, and campaign management',
-      tech: ['Java', 'Spring Boot', 'MySQL', 'Redis', 'RabbitMQ', 'Kafka', 'REST APIs']
+      title: "Rich Communication Services (RCS) Platform",
+      company: "Fonada",
+      period: "Jan 2024 – Present",
+      description: "Backend of multimedia messaging platform with secure auth & campaign management.",
+      tech: ["Java", "Spring Boot", "MySQL", "Redis", "RabbitMQ", "REST APIs"],
     },
     {
-      title: 'Disposition Analyzer',
-      description: 'Summarized and classified bot-user chat sessions using OpenAI APIs and analytics',
-      tech: ['Java', 'Spring Boot', 'OpenAI APIs', 'MySQL', 'RabbitMQ']
+      title: "SMS Platform",
+      company: "Fonada",
+      period: "Nov 2022 – Dec 2023",
+      description: "Backend system for SMS processing & callback handling.",
+      tech: ["Java", "Spring Boot", "MySQL", "Redis", "RabbitMQ", "JWT", "REST APIs"],
     },
     {
-      title: 'Callback Handler',
-      description: 'Real-time callback delivery with multithreaded queueing logic for multiple clients',
-      tech: ['Java', 'Spring Boot', 'Multithreading', 'RabbitMQ', 'Redis']
+      title: "Disposition Analyzer",
+      company: "Fonada",
+      period: "2023",
+      description: "Analyzed chat/call dispositions & generated summaries.",
+      tech: ["Java", "Spring Boot", "MySQL", "OpenAI APIs", "RabbitMQ"],
     },
-    {
-      title: 'Tool-Calling API Orchestrator',
-      description: 'Runtime API trigger system with dynamic data injection and fallback handling',
-      tech: ['Java', 'Spring Boot', 'REST APIs', 'Redis', 'MySQL']
-    }
   ];
 
   return (
     <section id="projects" className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
       <div className="max-w-6xl mx-auto px-4">
-        <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
-            Featured Projects
+        {/* Heading with animated emoji */}
+        <div className="text-center mb-12 animate-fade-in-up flex justify-center items-center space-x-2">
+          <span className="text-3xl animate-bounce">🚀</span>
+          <h2 className="text-3xl md:text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600 mb-2">
+            Projects
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full animate-pulse"></div>
+          <span className="text-3xl animate-bounce">🚀</span>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 animate-stagger">
+        {/* Project cards */}
+        <div className="grid md:grid-cols-2 gap-6">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 border border-slate-100 group p-6"
-              style={{ animationDelay: `${index * 200}ms` }}
+              className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 flex overflow-hidden"
             >
-              <div className="mb-4">
-                <div className="w-full h-32 bg-gradient-to-br from-blue-100 via-purple-50 to-cyan-100 rounded-xl flex items-center justify-center group-hover:from-blue-200 group-hover:via-purple-100 group-hover:to-cyan-200 transition-all duration-500">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition-transform duration-300">
-                      <Code2 className="w-8 h-8 text-white" />
-                    </div>
-                    <div className="text-sm font-mono text-slate-600 font-semibold">
-                      {project.title.split(' ')[0]}
-                    </div>
-                  </div>
+              {/* Image/Icon - 40% */}
+              <div className="w-2/5 bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center p-4">
+                <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center">
+                  <Code2 className="w-8 h-8 text-white" />
                 </div>
               </div>
-              <div>
-                <h3 className="text-xl font-bold text-slate-800 mb-3">
-                  {project.title}
-                </h3>
-                <p className="text-slate-600 mb-4 leading-relaxed">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tech.map((tech, techIndex) => (
-                    <span
-                      key={techIndex}
-                      className="px-3 py-1 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 rounded-full text-sm font-mono font-medium hover:scale-105 transition-transform duration-200"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex space-x-3">
-                  <button className="flex items-center text-blue-600 hover:text-blue-800 transition-all duration-300 hover:scale-105">
-                    <Github className="w-4 h-4 mr-1" />
-                    Code
-                  </button>
-                  <button className="flex items-center text-blue-600 hover:text-blue-800 transition-all duration-300 hover:scale-105">
-                    <ExternalLink className="w-4 h-4 mr-1" />
-                    Demo
-                  </button>
+
+              {/* Text content - 60% */}
+              <div className="w-3/5 p-4 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-lg font-bold text-slate-800">{project.title}</h3>
+                  <p className="text-sm text-slate-500 mb-2">{project.period}</p>
+                  <p className="text-sm text-slate-600 mb-2">{project.description}</p>
+                  <div className="flex flex-wrap gap-1">
+                    {project.tech.map((tech, idx) => (
+                      <span
+                        key={idx}
+                        className="px-2 py-0.5 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 rounded-full text-xs font-mono"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
