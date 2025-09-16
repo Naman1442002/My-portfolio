@@ -3,7 +3,7 @@ import { Github, Linkedin, Mail, MapPin, Code2, Zap, Cpu } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 flex items-center justify-center px-4 relative overflow-hidden">
+    <section id="home" className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 flex items-center justify-center px-4 relative overflow-hidden pt-20">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -19,7 +19,7 @@ const Hero = () => {
         <div className="absolute bottom-20 right-10 text-green-400/20 text-3xl font-mono animate-pulse">()</div>
       </div>
 
-      <div className="max-w-4xl mx-auto text-center">
+      <div className="max-w-4xl mx-auto text-center mt-8">
         <div className="mb-8">
           {/* Professional Logo */}
           <div className="flex items-center justify-center mb-8">
@@ -45,12 +45,12 @@ const Hero = () => {
             </div>
           </div>
           
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 animate-fade-in-up">
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 animate-fade-in-up">
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
               Full Stack Developer
             </span>
           </h1>
-          <h2 className="text-xl md:text-2xl font-semibold mb-6 animate-fade-in-up delay-200">
+          <h2 className="text-xl md:text-2xl font-semibold mb-8 animate-fade-in-up delay-200">
             <span className="inline-flex items-center space-x-2">
               <span className="bg-gradient-to-r from-cyan-400 to-blue-400 px-3 py-1 rounded-full text-sm font-mono font-bold text-slate-900">React</span>
               <span className="text-slate-300 text-2xl">×</span>
@@ -59,13 +59,13 @@ const Hero = () => {
               <span className="bg-gradient-to-r from-green-400 to-emerald-400 px-3 py-1 rounded-full text-sm font-mono font-bold text-slate-900">Spring Boot</span>
             </span>
           </h2>
-          <div className="flex items-center justify-center text-slate-300 mb-8 animate-fade-in-up delay-300">
+          <div className="flex items-center justify-center text-slate-300 mb-10 animate-fade-in-up delay-300">
             <MapPin className="w-5 h-5 mr-2" />
             <span className="text-lg">Noida, India</span>
           </div>
         </div>
         
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8 animate-fade-in-up delay-500">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-fade-in-up delay-500">
           <a
             href="https://github.com/Naman1442002"
             target="_blank"
@@ -93,7 +93,7 @@ const Hero = () => {
           </a>
         </div>
 
-        <div className="max-w-2xl mx-auto animate-fade-in-up delay-700">
+        <div className="max-w-2xl mx-auto animate-fade-in-up delay-700 mb-8">
           <img
             src="https://images.pexels.com/photos/1181472/pexels-photo-1181472.jpeg?auto=compress&cs=tinysrgb&w=800"
             alt="Full Stack Development"
