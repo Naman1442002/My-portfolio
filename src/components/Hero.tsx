@@ -126,7 +126,7 @@ const Hero = () => {
           {/* Resume Download Button */}
           <div className="mt-6 flex flex-col md:flex-row gap-4 justify-center md:justify-start">
             <a
-              href="/Resume.pdf"
+              href="/Naman_Pal_Java_2years_Exp.pdf"
               download
               className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300 relative overflow-hidden"
             >
